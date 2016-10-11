@@ -81,6 +81,34 @@ FunSayHello()
 FunSay("fuck")
 FunSay2("fuck",name2:"NQU")
 
+func InS() -> (Int, String){
+    return (2,"fuck")
+}
 
+let (val1, val2)=InS()
+print("val1=\(val1)")
+print("val2=\(val2)")
+
+
+func ReturnInt() ->Int{
+    return 1
+}
+
+func ReturnString(name:String) -> String{
+    print(name)
+    return"Hello "+name
+}
+
+func Return2Parameters() -> (Int, String){
+    return (2, "fuck")
+}
+
+print(ReturnInt())
+print(ReturnString("National Quemoy University"))
+let (val3, val4) = Return2Parameters()
+print("val3=\(val3)")
+print("val4=\(val4)")
+
+Return2Parameters().1
 
 
