@@ -1,0 +1,86 @@
+//: Playground - noun: a place where people can play
+
+import UIKit
+
+for index in 0..<3{
+    print("index is \(index)")
+}
+
+var idx = 0
+
+repeat {
+    print("idx is \(idx)")
+    idx += 1
+} while idx < 3
+
+idx = 0
+
+repeat {
+    print("repeat while")
+    print("idx is \(idx)")
+    idx++
+} while idx < 3
+
+
+print("do while")
+idx = 3
+repeat {
+    print("idx is \(idx)")
+    idx++
+} while idx < 3
+
+
+var array1 = ["Eggs", "Milk"]
+var array2: [String] = ["Eggs", "Milk"]
+var array3: [Int] = [2,23,66,88]
+var array4 =
+[[11, 22, 33],
+[44,55,66],
+[77,88,99]]
+
+
+
+for item in array4 {
+    print(item)
+}
+print(array4[0])
+
+for item1 in array4{
+    for item in item1{
+        print(item)
+    }
+}
+
+
+array1 = array1 + ["Sugar"]
+for i in 0..<array1.count {
+    print(array1[i])
+}
+
+array1.insert("noodle", atIndex: 2)
+for item in array1{
+    print(array1[0])
+}
+
+array1.removeAtIndex(0)
+print(array1)
+
+func FunSayHello(){
+    print("eri")
+}
+
+func FunSay(name:String){
+    print(name)
+}
+
+func FunSay2(name:String,name2:String){
+    print(name+name2)
+}
+
+FunSayHello()
+FunSay("fuck")
+FunSay2("fuck",name2:"NQU")
+
+
+
+
