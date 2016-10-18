@@ -1,0 +1,190 @@
+//: Playground - noun: a place where people can play
+
+import Cocoa //加入函式庫定義
+
+
+
+//4-1
+func FunSayHello(){
+    print("eri")
+}
+
+func FunSay(name:String){
+    print(name)
+}
+
+func FunSay2(name:String, name2:String){
+    print(name+name2)
+}
+
+func FunSay3(name:String = "Hello"){
+    print(name)
+}
+
+FunSayHello()
+FunSay("Hello!")
+FunSay2("Hello", name2: ("world"))
+FunSay3()
+
+//4-2
+
+
+func  FunSayHell() -> Int {
+    return 1
+}
+
+func FunSa(name:String) -> String {
+    print(name)
+    return "Hello"+name
+}
+
+func FunSa2() -> (Int, String){
+    return (2,"www.fk.com")
+}
+
+print(FunSayHello())
+print(FunSay("www.fuk.com"))
+let (val1,val2)=FunSa2()
+print("val1=\(val1)")
+print("val2=\(val2)")
+
+
+
+//4-3
+func Fun1() -> (Int, String, Int){
+    return (2, "FUK", 3)
+}
+let (v1,v2,v3)=Fun1()
+print("v1=\(v1) v2=\(v2) v3=\(v3)")
+print(Fun1().0)
+print(Fun1().1)
+print(Fun1().2)
+
+
+let Legs = ["ant":6 ,"snake":0 ,"cow":4]
+for (animalName, legCount) in Legs {
+    print("\(animalName)s have \(legCount)s legs")
+}
+
+print(Legs["cow"])
+let Fruit = [0:"Watermelon", 1:"Banana", 2:"Apple"]
+print(Fruit[1])
+
+
+
+
+
+//4-4
+class MyPeople {
+    var name = ""
+    func getName() -> String{
+        return "\(name)"
+    }
+}
+var Student1 = MyPeople()
+Student1.name = "Powen Ko"
+print(Student1.getName())
+
+
+
+//4-5
+class Mypeople {                    //類別名稱
+    var name = ""
+    init(Name:String){
+            self.name=Name
+    }
+    func getName() -> String {
+        return "\(name)"
+    }
+}
+var student1 = Mypeople(Name:"Powenko.com")
+print(student1.getName()
+)
+
+
+//4-6
+class MYpeople {
+    var name = ""
+    init(Name:String){
+        self.name=Name
+    }
+    func getName() -> String{
+        return "\(name)"
+    }
+    deinit{
+        print("Release")
+    }
+}
+var Peo1 = MYpeople(Name:"Powen KO")
+print(Peo1.getName())
+
+
+//4-7
+class MYPeople {
+    var name = ""
+    var m_address = ""
+    var address: String {
+        get{
+            return "\(name) address is" +
+                m_address
+        }
+        set(i_string){
+            m_address==i_string
+        }
+    }
+    init(Name:String){
+        self.name = Name
+    }
+    func getName() -> String {
+        return "\(name)"
+    }
+    deinit{
+        print("Release")
+    }
+}
+
+var peo1 = MYPeople(Name:"Powenko.com")
+peo1.address = "San Francisco"
+print(peo1.address)
+print(peo1.getName())
+
+
+//4-8
+class myPeople {
+    var name = ""
+    init(Name:String){
+        self.name = Name
+    }
+    func getName() -> String {
+        return "\(name)"
+    }
+}
+
+class myStudent: myPeople{          //繼承
+    var studentID = ""
+    override func getName() -> String {
+        let t_name = super.getName()        //var t_name = super.getName()
+        return "\(name) , \(t_name) , ID = \(studentID)"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
