@@ -165,24 +165,14 @@ class myStudent: myPeople{          //繼承
     override func getName() -> String {
         let t_name = super.getName()        //var t_name = super.getName()
         return "\(name) , \(t_name) , ID = \(studentID)"
+    }
 }
+var PEO1 = myPeople(Name:"Powen Ko")
+print(PEO1.getName())
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+var Stu1 = myStudent(Name:"Lucy")
+Stu1.studentID = "2015"
+print(Stu1.getName())
 
 
 
