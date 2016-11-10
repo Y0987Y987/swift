@@ -1,0 +1,18 @@
+import UIKit
+//deinit{}負責處理在類別消除前執行一些動作，我們可以利用這個函式觀察物件的生命週期。
+
+class Person {
+    var name: String
+    
+    init(name: String) {
+        self.name = name
+        print("\(name) is borned")
+    }
+    
+    deinit {
+        print("\(name) is dead")
+    }
+}
+
+var man: Person? = Person(name: "Hemingway")        //output: Hemingway is borned
+man = nil                                           //output: Hemingway is dead
