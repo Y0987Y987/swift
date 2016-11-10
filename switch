@@ -1,0 +1,19 @@
+import UIKit
+
+var name = "banana"
+if name == "hello, world" {
+    print("hello,world")
+} else if name == "banana" {
+    print("hello, banana")
+} else {
+    print("I'm sorry \(name), but I don't recognize you")
+}
+
+switch name{
+    case "hello, world":
+        print("hello, world")
+    case "banana":
+        print("hello, banana")
+    default:
+        print("I'm sorry \(name), but I don't recognize you")
+}
