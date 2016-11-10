@@ -1,0 +1,22 @@
+import UIKit
+
+func FunSayHello() -> Int {
+    return 1
+}
+
+func FunSay(name:String) -> String{
+    print(name)
+    return "Hello"+name
+}
+
+func FunSay2() -> (Int, String){
+    return (2, "www.fuck.com")
+}
+
+print(FunSayHello())
+print(FunSay("FUCK"))
+let (val1, val2) = FunSay2()
+print("val1 = \(val1)")
+print("val2 = \(val2)")
+
+
