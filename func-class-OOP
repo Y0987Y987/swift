@@ -1,0 +1,26 @@
+import UIKit
+class MyPeople {
+    var name = ""
+    init(Name:String){
+        name = Name
+    }
+    
+    func getName() -> String {
+        return "\(name)"
+    }
+}
+
+class MyStudent: MyPeople {
+    var studentID = ""
+    override func getName() -> String {                 //override替代該函數
+        var t_name = super.getName()                    //super呼叫父函數
+        return "\(name), \(t_name) , ID = \(studentID)"
+    }
+}
+
+var Peo1 = MyPeople(Name: "FUCK")
+print(Peo1.getName())
+
+var Stu1 = MyStudent(Name: "FK")
+Stu1.studentID = "2015"
+print(Stu1.getName())
