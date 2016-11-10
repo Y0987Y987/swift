@@ -1,0 +1,15 @@
+import UIKit
+func Fun1() -> (Int, String, Int){
+    return (2,"fuck",3)
+}
+let (v1,v2,v3) = Fun1()
+print("v1 = \(v1), v2 = \(v2), v3 = \(v3)")
+
+let Legs = ["ant":6,"snake":0,"cow":4]
+for (animalName, legCount) in Legs {
+    print("\(animalName)s have \(legCount) legs")
+}
+print(Legs["cow"])
+
+let Fruit = [0:"Watermelon", 1:"Banana", 2:"Apple"]
+print(Fruit[1])
