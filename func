@@ -1,0 +1,22 @@
+import UIKit
+
+func FunSayHello(){
+    print("www.fuck.com")
+}
+
+func FunSay(name:String){
+    print(name)
+}
+
+func FunSay2(name:String,name2:String){
+    print(name+name2)
+}
+
+func FunSay3(name:String = "Hello"){
+    print(name)
+}
+
+FunSayHello()
+FunSay("fuck!")
+FunSay2("fuck!", name2:"you!")
+FunSay3()
