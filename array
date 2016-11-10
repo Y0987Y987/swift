@@ -1,0 +1,26 @@
+// Playground - noun: a place where people can play
+
+import UIKit
+
+var array1 = ["Eggs", "Milk"]
+var array2: [String] = ["Eggs", "Milk"]
+var array3: [Int] = [2,23,66,88]
+var a = [[11,22,33],
+         [44,55,66],
+         [77,88,99]]
+print(a[2][0])
+
+print("Tarray1 has \(array1.count) items.")
+
+array1 = array1+["Sugar"]
+
+for var i in 0..<array1.count{
+    print(array1[i])
+}
+array1.insert("noodle", atIndex: 2)
+for item in array1 {
+    print(item)
+}
+
+array1.removeAtIndex(0)
+print(array1[0])
