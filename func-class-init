@@ -1,0 +1,12 @@
+import UIKit
+class MyPeople {
+    var name = ""
+    init(Name:String){
+        name = Name
+    }
+    func getName() -> String {
+        return "\(name)"
+    }
+}
+var Student1 = MyPeople(Name: "FUCK") //建立新的類別變數，並指定初始化的資料
+print(Student1.getName())
