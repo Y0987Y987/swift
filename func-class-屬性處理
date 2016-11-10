@@ -1,0 +1,33 @@
+import UIKit
+
+class MyPeople {
+    var name = ""
+    var m_address = ""
+    
+    var address: String {
+        get {
+            return "\(name) address is "+m_address
+        }
+        set(i_string){
+            m_address = i_string
+        }
+        
+    }
+    
+    init(Name:String){
+        name = Name
+    }
+    
+    func getName() -> String {
+        return "\(name)"
+    }
+    
+    deinit{
+        print("Release")
+    }
+}
+
+var Peo1 = MyPeople(Name: "FUCK")
+Peo1.address = "tai"
+print(Peo1.address)
+print(Peo1.getName())
