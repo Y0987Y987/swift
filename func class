@@ -1,0 +1,12 @@
+import UIKit
+
+class MyPeople {                //class 類別名稱 {
+    var name = ""
+    func getName() -> String {
+        return "\(name)"
+    }
+}
+
+var Student1 = MyPeople()
+Student1.name = "FUCK"
+print(Student1.getName())
