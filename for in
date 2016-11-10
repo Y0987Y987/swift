@@ -1,0 +1,29 @@
+// Playground - noun: a place where people can play
+
+import UIKit
+
+var array1: [String] = ["Eggs", "Milk"]
+var array2: [Int] = [2,23,66,88]
+var array3 = [[11,22,33],
+             [44,55,66],
+             [77,88,99]]
+
+for item in array1{
+    print(item)
+}
+
+for item in array2{
+    print(item)
+}
+
+for item in array3{
+    print(item)
+}
+
+for items in array3 {
+    for item in items {
+        print(item)
+    }
+}
+
+
