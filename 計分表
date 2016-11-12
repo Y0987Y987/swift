@@ -1,0 +1,125 @@
+//
+//  GameScene.swift
+//  CH7game
+//
+//  Created by NQU on 2016/11/12.
+//  Copyright (c) 2016年 NQU. All rights reserved.
+//
+
+import SpriteKit
+
+class GameScene: SKScene {
+    override func didMoveToView(view: SKView) {
+        /* Setup your scene here */
+        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
+        myLabel.zPosition = 10
+        myLabel.text = "Hello, World!"
+        myLabel.fontSize = 32
+        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:100);
+        self.addChild(myLabel)
+        
+        //////////////////////// 左上角的Stage文字
+        let myLable2 = SKLabelNode(fontNamed: "AmericanTypewriter-Bold")
+        myLable2.zPosition = 10
+        myLable2.text = "Your Score"
+        myLable2.fontSize = 50
+        myLable2.fontColor = UIColor(red: 255/255, green: 200/255, blue: 25/255, alpha: 250/255)            // 指定顏色
+        myLable2.position = CGPoint(x:140, y:Int(self.size.height)-140);
+        self.addChild(myLable2)
+        
+        //////////////////////// BG
+        let bgImage = SKSpriteNode(imageNamed: "game3bg.jpg")
+        bgImage.zPosition = -1
+        self.addChild(bgImage)
+        bgImage.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
+        
+        //////////////////////// button pic
+        let button1 = SKSpriteNode(imageNamed: "button1.png")
+        button1.zPosition = 3
+        self.addChild(button1)
+        button1.position = CGPoint(x:CGRectGetMidX(self.frame)-70,y:CGRectGetMidY(self.frame)-220);
+        
+        let button2 = SKSpriteNode(imageNamed: "button2.png")
+        button2.zPosition = 3
+        self.addChild(button2)
+        button2.position = CGPoint(x:CGRectGetMidX(self.frame)+70,y:CGRectGetMidY(self.frame)-220);
+        
+        //////////////////////// 
+        //////////////////////// 獎盃圖片
+        let place = SKSpriteNode(imageNamed: "place.png")
+        place.zPosition = 2
+        self.addChild(place)
+        place.position = CGPoint(x:CGRectGetMidX(self.frame),y:CGRectGetMidY(self.frame)-10);
+        let actionD1 = SKAction.scaleTo(1.1, duration: 5)       // 大小
+        let actionD2 = SKAction.scaleTo(1, duration: 5)         // 恢復
+        let actionD3 = SKAction.sequence([actionD1,actionD2])   // 連續
+        let actionD4 = SKAction.repeatActionForever(actionD3)   // 永遠連續
+        place.runAction(actionD4)
+        //////////////////////// cloud pic
+        let cloud = SKSpriteNode(imageNamed: "cloud.png")
+        cloud.zPosition = 1
+        self.addChild(cloud)
+        cloud.position = CGPoint(x: CGRectGetMidX(self.frame)+300, y: CGRectGetMidY(self.frame)+180);
+        
+        let actionC1 = SKAction.colorizeWithColor(UIColor(red: 1, green: 1, blue: 1, alpha: 0), colorBlendFactor:  1, duration:  2)     // 透明
+        let actionC2 = SKAction.colorizeWithColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), colorBlendFactor: 1, duration: 2)       // 恢復
+        let actionC3 = SKAction.sequence([actionC1,actionC2])     // 連續
+        let actionC4 = SKAction.repeatAction(actionC3, count:10) //重複１０次
+        cloud.runAction(actionC4)
+        
+        //////////////////////// 分數版圖片
+        let scorebg = SKSpriteNode(imageNamed: "scorebg.jpg")
+        scorebg.zPosition = 2
+        self.addChild(scorebg)
+        scorebg.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame)+256);
+        let newPosition2 = CGPoint(x: 0, y: CGRectGetMidY(self.frame)+256);
+        let action1 = SKAction.moveTo(newPosition2, duration: 1)    // 移動
+        let action2 = SKAction.scaleTo(1.9, duration: 1)            // 放大
+        let action3 = SKAction.scaleTo(1, duration: 1)              // 恢復大小
+        let scaleSequence = SKAction.sequence([action1,action2,action3]) // 連續
+        scorebg.runAction(scaleSequence)
+        
+        //////////////////////// 主角圖片
+        let bear1 = SKSpriteNode(imageNamed: "bear1.png")
+        bear1.zPosition = 1
+        self.addChild(bear1)
+        bear1.position = CGPoint(x: CGRectGetMidX(self.frame)-350, y: CGRectGetMidY(self.frame)-100);
+        let newPosition = CGPoint(x: CGRectGetMidX(self.frame)-370, y: CGRectGetMidY(self.frame));
+        let actionb1 = SKAction.moveTo(newPosition, duration: 2) // 移動
+        let actionb2 = SKAction.scaleTo(1.9, duration: 2)        // 放大
+        let actionb3 = SKAction.group([actionb1, actionb2])      // 混合
+        bear1.runAction(actionb3)
+        
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if let touch = touches.first{
+            let location = touch.locationInNode(self)
+        let touchedNode = nodeAtPoint(location)
+            if touchedNode.name == "button1" {                  // 如果是button1
+                touchedNode.zPosition = 15
+                let Range:CGFloat = 80.0
+                let balloonPath = UIBezierPath()
+                balloonPath.moveToPoint(CGPointMake(Range, Range)) // 起始點
+                balloonPath.addLineToPoint(CGPointMake(self.size.width-Range, Range))
+                balloonPath.addLineToPoint(CGPointMake(self.size.width-Range, self.size.height-Range))
+                balloonPath.addLineToPoint(CGPointMake(Range, self.size.height-Range))
+                balloonPath.addLineToPoint(CGPointMake(Range, Range))
+                let balloonWave = SKAction.followPath(balloonPath.CGPath, asOffset: false, orientToPath: true, duration: 5)
+                touchedNode.runAction(balloonWave)          // 設定線性移動
+                
+            }else if touchedNode.name == "button2" {        // if button2
+                touchedNode.zPosition = 15
+                let wait = SKAction.waitForDuration(0.5)
+                let action2 = SKAction.scaleBy(2, duration: 0.5)
+                let Sequence = SKAction.sequence([action2,wait,action2,wait,action2])
+                touchedNode.runAction(Sequence)             // 移動和休息
+            }
+        }
+        }
+    
+   
+    override func update(currentTime: CFTimeInterval) {
+        /* Called before each frame is rendered */
+    }
+}
